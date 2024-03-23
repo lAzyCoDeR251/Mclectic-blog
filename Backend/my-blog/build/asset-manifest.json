@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.13c33acb.css",
+    "main.js": "/static/js/main.0862bdf5.js",
+    "static/media/Untitled design (3).png": "/static/media/Untitled design (3).e8a994febdd240f6dc8f.png",
+    "static/media/movies-bg1.webp": "/static/media/movies-bg1.de94832eccc1585e5d90.webp",
+    "static/media/banner1.png": "/static/media/banner1.cc140b086dfb42d1bd52.png",
+    "static/media/contact-bg.jpg": "/static/media/contact-bg.86ab12b4913a9e8d12b2.jpg",
+    "static/media/movies-card1.jpg": "/static/media/movies-card1.edc5492202fce291b5fb.jpg",
+    "static/media/mov-bg-fixed.png": "/static/media/mov-bg-fixed.ea0d909758fb32e3469e.png",
+    "static/media/movies-card3.jpg": "/static/media/movies-card3.fae62fa1c92d72815b63.jpg",
+    "static/media/movies-card2.avif": "/static/media/movies-card2.760dde23984999fd1891.avif",
+    "static/media/contac-bg-fx.webp": "/static/media/contac-bg-fx.e8d609336747c08d947a.webp",
+    "index.html": "/index.html",
+    "main.13c33acb.css.map": "/static/css/main.13c33acb.css.map",
+    "main.0862bdf5.js.map": "/static/js/main.0862bdf5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13c33acb.css",
+    "static/js/main.0862bdf5.js"
+  ]
+}
