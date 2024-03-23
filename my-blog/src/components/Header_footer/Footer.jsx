@@ -9,6 +9,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import logoImage from "../Assests/Mclectic.png";
+import { Link as RouterLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -19,7 +21,7 @@ const Footer = () => {
           <Grid container rowSpacing={2} marginTop="30px">
 
             <Grid item xs={12} md={4} className="flex justify-center md:items-center">
-              <Typography className="flex justify-center">
+              <Typography className="flex justify-center" component={RouterLink} to="/">
                 <img
                   src={logoImage}
                   alt="Your Logo"
@@ -68,7 +70,7 @@ const Footer = () => {
                       display: "inline-block",
                     }}
                     className="hover:text-black hover:underline text-center"
-                    href="/"
+                    href="/space"
                   >
                     Space
                   </Link>
@@ -83,7 +85,7 @@ const Footer = () => {
                       justifyContent: "center",
                     }}
                     className="hover:text-black hover:underline text-center"
-                    href="/"
+                    href="/fact"
                   >
                     Facts
                   </Link>
@@ -98,7 +100,7 @@ const Footer = () => {
                       justifyContent: "center",
                     }}
                     className="hover:text-black hover:underline text-center"
-                    href="/"
+                    href="/movies"
                   >
                     Movies
                   </Link>
@@ -137,7 +139,7 @@ const Footer = () => {
                       display: "inline-block",
                     }}
                     className="hover:text-black hover:underline text-center"
-                    href="/"
+                    href="/about"
                   >
                     About
                   </Link>
@@ -151,7 +153,7 @@ const Footer = () => {
                       display: "inline-block",
                     }}
                     className="hover:text-black hover:underline text-center"
-                    href="/"
+                    href="/contact"
                   >
                     Contact
                   </Link>
@@ -165,7 +167,7 @@ const Footer = () => {
                       display: "inline-block",
                     }}
                     className="hover:text-black hover:underline text-center"
-                    href="/"
+                    href="/connect"
                   >
                     Connect
                   </Link>
@@ -209,7 +211,7 @@ const Footer = () => {
                     Work With Me
                   </Link>
                   <br />
-                  <Link
+                  <HashLink
                     color="inherit"
                     underline="none"
                     style={{
@@ -218,10 +220,10 @@ const Footer = () => {
                       display: "inline-block",
                     }}
                     className="hover:text-black hover:underline text-center"
-                    href="/"
+                    to="/contact#faq"
                   >
                     FAQs
-                  </Link>
+                  </HashLink>
                   <br />
                   <Link
                     color="inherit"

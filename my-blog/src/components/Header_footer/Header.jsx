@@ -84,11 +84,12 @@ function Header() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo (you can replace this with your logo component or image) */}
-        <Typography variant="h6" component="div">
+        <Typography variant="h6" component={RouterLink} to="/">
           <img
             src={logoImage}
             alt="Your Logo"
             style={{ maxWidth: "100px", maxHeight: "30px", paddingTop: "9px" }}
+            className="cursor-pointer"
           />
         </Typography>
 

@@ -10,7 +10,7 @@ const BlogForm = ({ selectedBlogId }) => {
     sections: [{ subheading: "", paragraphs: [""], images: [""] }],
     videos: null,
     links: [],
-    // slug: "",
+    // slug: "", 
   });
 
   // const [addedSections, setAddedSections] = useState([0]);

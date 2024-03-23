@@ -36,7 +36,7 @@ const Space_Blog = () => {
         </div>
         
       </div>
-      <div className="p-8">
+      <div className="hidden md:block p-8">
         <h3 className="text-center text-2xl p-2">Disclaimer</h3>
         <p className="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi fugit delectus ratione quam. Maiores, sequi. Odio temporibus quo rem? Asperiores repudiandae nam sed, commodi labore officia pariatur necessitatibus eveniet fugit.</p>
 

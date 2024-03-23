@@ -145,23 +145,20 @@ router.put(
   }
 );
 
-// GET: Retrieve the latest uploaded blog entry
-router.get("/latest", async (req, res) => {
-  try {
-    // Sort blogs based on the creation timestamp in descending order and limit to 1 result
-    const latestBlog = await BlogModel.find().sort({ createdAt: -1 }).limit(1);
+// Routes to send contact form data
+router.post("/contact", (req, res) => {
+  const { fullName, email, message } = req.body;
 
-    if (latestBlog.length > 0) {
-      res.json(latestBlog[0]); // Return the latest blog entry
-      console.log("Latest Blog Entry:", latestBlog[0]);
-    } else {
-      res.json({}); // Return an empty object if no blogs are found
-      console.log("No blogs found.");
-    }
-  } catch (error) {
-    console.error("Error retrieving latest blog entry:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+  // Validate the form data
+  if (!fullName || !email || !message) {
+    return res.status(400).json({ error: "All fields are required." });
   }
+
+  // Handle the form submission (e.g., store data in a database, send email, etc.)
+  console.log("Received form submission:", { fullName, email, message });
+
+  // Respond with a success message
+  res.status(200).json({ message: "Form submitted successfully." });
 });
 
 module.exports = router;

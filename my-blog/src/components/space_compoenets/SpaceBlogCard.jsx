@@ -4,7 +4,8 @@ import spaceImg from "../Assests/movies-card2.avif";
 const SpaceBlogCard = () => {
   return (
     <div id="section-testimonials">
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
+
         <div
           className="max-w-3xl relative overflow-hidden shadow-md m-5 border border-gray-200 rounded-md group"
           style={{

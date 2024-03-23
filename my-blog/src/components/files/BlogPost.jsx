@@ -1,87 +1,89 @@
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-import { Divider } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Divider, Skeleton } from "@mui/material";
 import "../../App.css";
-import assest from "../Assests/Ma.png";
+// import assest from "../Assests/Ma.png";
 
 const BlogPost = () => {
-  // const [blog, setBlog] = useState(null);
-  // useEffect(() => {
-  //   const fetchBlogDetails = async () => {
-  //     try {
-  //       const response = await axios.get("http://localhost:5000/auth/blogs");
-  //       console.log("Blog Details:", response.data);
-  //       setBlog(response.data[1]);
-  //     } catch (error) {
-  //       console.error("Error fetching blog details:", error);
-  //     }
-  //   };
+  const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchBlogDetails = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/blogs/recent-blogs"
+        );
+        // console.log("Blog Details:", response.data);
+        setBlog(response.data[0]);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching blog details:", error);
+        setLoading(false);
+      }
+    };
 
-  //   fetchBlogDetails();
-  // }, []);
+    fetchBlogDetails();
+  }, []);
+
+  if (loading) {
+    // Loading skeleton while fetching data
+    return (
+      <div className="bg-white border rounded-lg md:p-6 shadow-md w-96 md:w-3/4 md:ml-10 mt-20 ">
+        <Skeleton animation="wave" height={60} />
+        <Skeleton animation="wave" height={200} />
+        <Skeleton animation="wave" height={20} width="80%" />
+        <Skeleton animation="wave" height={200} />
+        <Skeleton animation="wave" height={20} width="80%" />
+        <Skeleton animation="wave" height={300} />
+      </div>
+    );
+  }
+
   return (
     <div className="flex justify-center">
-      {/* {blog && ( */}
       <div className="bg-white border rounded-lg md:p-6 shadow-md w-96 md:w-3/4 md:ml-10 mt-20 ">
-        <h2 className="p-3 text-4xl font-medium text-center">
-          {/* {blog.heading} */}Assassination
-        </h2>
+        <h2 className="p-3 text-4xl font-medium text-center">{blog.heading}</h2>
         <div className="">
-          <div className="m-5">
-            <p className="text-justify">
-              On a crisp November day in 1963, the world was forever changed as
-              the echoes of three fateful shots rang out in Dallas, Texas.
-              President John F. Kennedy, the charismatic and beloved leader of
-              the United States, was assassinated in broad daylight, sending
-              shockwaves across the nation and the globe. On a crisp November
-              day in 1963, the world was forever changed as the echoes of three
-              fateful shots rang out in Dallas, Texas. President John F.
-              Kennedy, the charismatic and beloved leader of the United States,
-              was assassinated in broad daylight, sending shockwaves across the
-              nation and the globe. daylight, sending shockwaves across the
-              nation and the globe. The official account placed the blame on Lee
-              Harvey Oswald, a lone gunman firing from a sixth-floor window, but
-              this event would become one of the most enduring mysteries and
-              sources of controversy in American history. With a complex web of
-              conspiracy theories, unanswered questions, and a multitude of
-              investigations, the JFK assassination has captured the
-              imaginations of generations. Continue the rest of your paragraph
-            </p>
-          </div>
-          {/* {blog.sections[0]?.images.map((image, index) => ( */}
-          <div className="flex justify-center">
-            {/* <img key={index} src={image} alt={`Image ${index + 1}`} /> */}
-            <img src={assest} alt="assasination" />
-          </div>
-          {/* ))} */}
-          <div className="m-5">
-            {/* <h2 className="p-3 text-4xl font-medium"></h2> */}
-            <p className="text-justify">
-              The official account placed the blame on Lee Harvey Oswald, a lone
-              gunman firing from a sixth-floor window, but this event would
-              become one of the most enduring mysteries and sources of
-              controversy in American history. With a complex web of conspiracy
-              theories, unanswered questions, and a multitude of investigations,
-              the JFK assassination has captured the imaginations of
-              generations. Continue the rest of your paragraph
-            </p>
-          </div>
+          {blog.sections &&
+            blog.sections.map((section, index) => (
+              <div key={index}>
+                {section.paragraphs &&
+                  section.paragraphs.map((paragraph, pIndex) => (
+                    <div className="m-5" key={pIndex}>
+                      <p className="text-justify">{paragraph}</p>
+                    </div>
+                  ))}
 
-          <div className="flex justify-center mb-10">
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                title="Blog Video"
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/QDKYhYRYmAk"
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                allowFullScreen
-              ></iframe>
+                <div className="flex justify-center">
+                  <img key={index} src={section.images} alt={`pic ${index}`} />
+                </div>
+                {section.afterImageParagraphs &&
+                  section.afterImageParagraphs.map((paragraph, pIndex) => (
+                    <div className="m-5" key={pIndex}>
+                      {/* <h2 className="p-3 text-4xl font-medium"></h2> */}
+                      <p className="text-justify">{paragraph}</p>
+                    </div>
+                  ))}
+              </div>
+            ))}
+
+          {blog.videos && (
+            <div className="flex justify-center mb-10">
+              <div className="aspect-w-16 aspect-h-9">
+                <iframe
+                  title="Blog Video"
+                  className="w-full h-full"
+                  src={blog.videos}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
-      {/* )} */}
+
       <div className="bg-white hidden md:block border rounded-lg p-6 shadow-md ml-12 mt-20 md:mr-10 w-1/3 h-fit">
         <div>
           <h3 className="p-3 text-2xl text-center">Explore Topics</h3>

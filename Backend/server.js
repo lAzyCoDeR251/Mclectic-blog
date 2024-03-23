@@ -7,6 +7,8 @@ const cors = require("cors");
 const connectDB = require("./db/db").connectDB;
 const authRoutes = require("./routes/auth");
 const blogRoutes = require("./routes/BlogRoute");
+const recentRoutes = require("./routes/RecentRoute")
+
 // const errorHandler = require('./utils/errorHandler');
 
 // database connection
@@ -27,6 +29,7 @@ app.use(cors());
 // Routes
 app.use("/auth/login", authRoutes);
 app.use("/auth/blogs", blogRoutes);
+app.use("/blogs", recentRoutes)
 
 // Error handler
 // app.use(errorHandler);
